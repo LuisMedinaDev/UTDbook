@@ -7,12 +7,15 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>UTDbook</title>
 	</head>
-	<body>
-		<slot name="navbar" />
-		<main class="px-6 bg-[#0c0c0e] min-h-screen mt-[66px]">
+	<body class="bg-[#0c0c0e]">
+		<header>
+			<slot name="navbar" />
+		</header>
+		<main class="px-6  mt-[66px] h-auto">
 			<slot name="buscar" />
 			<slot name="libros" />
 		</main>
+		<slot name="footer" />
 	</body>
 </html>
 
