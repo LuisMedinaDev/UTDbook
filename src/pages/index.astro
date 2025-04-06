@@ -1,8 +1,10 @@
 ---
 import Navbar from '../components/navbar.astro';
 import Layout from '../layouts/Layout.astro';
+import Buscar from '../components/buscar.astro';
 ---
 
 <Layout>
-	<Navbar />
+	<Navbar slot="navbar"/>
+	<Buscar slot="buscar"/>
 </Layout>
