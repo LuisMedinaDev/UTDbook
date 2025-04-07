@@ -1,14 +1,13 @@
 ---
-import Navbar from '../components/navbar.astro';
 import Layout from '../layouts/Layout.astro';
-import Buscar from '../components/buscar.astro';
 import Libros from '../components/libros.astro';
-import Footer from '../components/footer.astro';
+import Buscar from '../components/buscar.astro';
 ---
 
 <Layout>
-	<Navbar slot="navbar"/>
-	<Buscar slot="buscar"/>
-	<Libros slot="libros"/>
-	<Footer slot="footer"/>
+	<div class="flex md:hidden">
+		<Buscar/>		
+	</div>
+
+	<Libros/>
 </Layout>

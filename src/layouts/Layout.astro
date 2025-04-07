@@ -1,3 +1,9 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/navbar.astro';
+import Footer from '../components/footer.astro';
+import Aside from '../components/aside.astro';
+---
 <!doctype html>
 <html lang="es">
 	<head>
@@ -7,20 +13,21 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>UTDbook</title>
 	</head>
-	<body class="bg-[#0c0c0e]">
-		<header>
-			<slot name="navbar" />
-		</header>
-		<main class="px-9 pb-[6.25rem] mt-[7.125rem] h-auto min-h-[90Vh]">
-			<slot name="buscar" />
-			<slot name="libros" />
-		</main>
-		<footer class="p-10 border-t-1 border-t-[#83838360] text-white flex flex-col justify-between items-center gap-3">
-			<slot name="footer" />
-		</footer>
+	<body class="bg-[#0c0c0e] flex">
 		
+		<Aside/>
+		<div>
+		<Navbar/>
+		<main class="px-9 pb-[6.25rem] md:pb-0 mt-[7.125rem] h-auto min-h-[90Vh] md:w-[95rem]">
+			
+			<slot/>
+		</main>
+		<Footer/>
+		</div>
 	</body>
 </html>
+
+
 <style>
 	@media (width >= 768px) {
 html {
