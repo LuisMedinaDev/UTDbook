@@ -6,7 +6,6 @@ import clerk from "@clerk/astro";
 import { dark } from "@clerk/themes";
 import { esES } from '@clerk/localizations';
 
-// https://astro.build/config
 export default defineConfig({
   experimental: {
     session: true
