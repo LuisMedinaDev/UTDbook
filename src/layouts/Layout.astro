@@ -1,9 +1,13 @@
 ---
-import '../styles/global.css';
-import Navbar from '../components/navbar.astro';
-import Footer from '../components/footer.astro';
-import Aside from '../components/aside.astro';
+import "../styles/global.css";
+import Footer from "../components/footer.astro";
+import Navbar from "../components/navbar.astro";
+import Aside from "../components/aside.astro";
+import "../styles/global.css";
+import { ViewTransitions } from 'astro:transitions';
+const { title } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="es">
 	<head>
@@ -11,34 +15,33 @@ import Aside from '../components/aside.astro';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>UTDbook</title>
+		<title>{ title }</title>
+		<ViewTransitions />
 	</head>
-	<body class="bg-[#0c0c0e] flex">
-		
-		<Aside/>
-		<div>
-		<Navbar/>
-		<main class="px-9 pb-[6.25rem] md:pb-0 mt-[7.125rem] h-auto min-h-[90Vh] md:w-[95rem]">
-			
-			<slot/>
-		</main>
-		<Footer/>
+	<body class="bg-[#0c0c0e] overflow-hidden">
+		<Navbar />
+		<div class="flex p-5">
+			<Aside />
+			<main
+				class="pb-[6.25rem] md:pb-0 md:ml-[30.5rem] bg-[#18181a] p-10 rounded-2xl overflow-auto h-screen w-full">
+				<slot />
+			</main>
 		</div>
+		<Footer />
 	</body>
 </html>
 
+<style is:global>
 
-<style>
 	@media (width >= 768px) {
-html {
-    font-size: clamp(6px, .8vw, 15.6px);
-}
-}
+		html {
+			font-size: clamp(6px, 0.8vw, 15.6px);
+		}
+	}
 
-@media (width <= 767px) {
-html {
-    font-size: clamp(6px, 2.2vw, 16px);
-}
-}
+	@media (width <= 767px) {
+		html {
+			font-size: clamp(6px, 2.2vw, 16px);
+		}
+	}
 </style>
-

@@ -1,21 +1,46 @@
 ---
-import "../styles/global.css";
 import Buscar from "./buscar.astro";
+import {
+	SignedIn,
+	SignedOut,
+	UserButton,
+	SignInButton,
+} from "@clerk/astro/components";
 ---
-<header>
-	<nav class="bg-[#0c0c0e] p-6 border-b-1 border-[#83838360] fixed top-0 left-0 right-0 z-50">
+
+<header class="w-full sticky top-0 z-50">
+	<nav class="bg-[#0c0c0e] p-6 border-b-1 border-[#83838360]">
 		<ul class="flex justify-between items-center">
 			<li>
-				<img src="/headerlogo.png" alt="logo" class="h-20 md:h-18">
+				<a href="register"
+					><img
+						src="/headerlogo.png"
+						alt="logo"
+						class="h-20 md:h-18"
+					/></a
+				>
 			</li>
-			<div class="hidden md:flex md:w-full">
-				<Buscar/>
-			</div>
-			<li class="flex border-1 border-[#9898983b] rounded-[10px] px-4 py-3  md:py-[.2rem] items-center justify-center gap-2.5">
-				<img src="/LogoHamburguesa.svg" class="h-11 w-11 md:hidden" alt="LogoHamburguesa">
-				<img src="/InfoUser.svg" class="h-11 w-11" alt="infoUser">
+			<li class="hidden md:flex md:w-[40%]">
+				<Buscar />
+			</li>
+			<li class="">
+				<button
+					class="text-white hover:bg-[#ffffff17] border-1 border-[#9898983b] rounded-[.7rem] px-5 py-3 md:py-1.5 cursor-pointer"
+				>
+					<SignedIn>
+						<UserButton
+							showName
+							appearance={{
+								elements: {
+									userButtonBox: "py-1",
+									avatarBox: "ml-3",
+									
+								},
+							}}
+						/>
+					</SignedIn>
+				</button>
 			</li>
 		</ul>
 	</nav>
 </header>
-

@@ -1,13 +1,37 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Libros from '../components/libros.astro';
-import Buscar from '../components/buscar.astro';
+import "../styles/global.css";
+import { SignedIn, SignedOut, UserButton, SignInButton } from "@clerk/astro/components";
 ---
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title> UTD Book - Home</title>
+	</head>
+	<body class="bg-[#0c0c0e] overflow-hidden">
+		<SignedOut>
+				<a href="/sign-in" class="text-white hover:bg-[#ffffff17] border-1 border-[#9898983b] rounded-[.7rem] px-5 py-3  md:py-1.5 cursor-pointer bg-[#f3305a44]">Registrate</a>
+		</SignedOut>
+		<SignedIn>
+			<a href="/sign-in" class="text-white hover:bg-[#ffffff17] border-1 border-[#9898983b] rounded-[.7rem] px-5 py-3  md:py-1.5 cursor-pointer bg-[#3aee7044]"> Inicia sesión</a>
+		</SignedIn>
+		
+		
+	</body>
+</html>
 
-<Layout>
-	<div class="flex md:hidden">
-		<Buscar/>		
-	</div>
+<!-- <style>
+	@media (width >= 768px) {
+		html {
+			font-size: clamp(6px, 0.8vw, 15.6px);
+		}
+	}
 
-	<Libros/>
-</Layout>
+	@media (width <= 767px) {
+		html {
+			font-size: clamp(6px, 2.2vw, 16px);
+		}
+	}
+</style> -->

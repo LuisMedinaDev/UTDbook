@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Buscar from '../components/buscar.astro';
+const user = await Astro.locals.currentUser;
+if (!user) return new Response("Unauthorized", { status: 401 });
+---
+
+<Layout title="UTD Book - Home">
+    <div class="flex md:hidden">
+		<Buscar/>		
+	</div>
+</Layout>

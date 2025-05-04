@@ -1,0 +1,7 @@
+---
+import { SignUp } from "@clerk/astro/components";
+import Layout from '../../layouts/LayoutSign.astro';
+---
+<Layout title="Verifica tu correo">
+  <SignUp path="/sign-up" routing="path" signInUrl="/sign-in" signInForceRedirectUrl="/home"/>
+</Layout>
