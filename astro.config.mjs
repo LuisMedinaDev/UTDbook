@@ -5,6 +5,7 @@ import node from "@astrojs/node";
 import clerk from "@clerk/astro";
 import { dark } from "@clerk/themes";
 import { esES } from '@clerk/localizations';
+import vercel from '@astrojs/vercel/serverless';
 
 export default defineConfig({
   experimental: {
@@ -20,5 +21,6 @@ export default defineConfig({
           baseTheme: dark,
         }
 })],
-       adapter: node({ mode: "standalone" })
+  
+       adapter: vercel({}),
 });
