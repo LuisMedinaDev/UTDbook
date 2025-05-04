@@ -1,16 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
-import node from "@astrojs/node";
 import clerk from "@clerk/astro";
 import { dark } from "@clerk/themes";
 import { esES } from '@clerk/localizations';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
+
 
 export default defineConfig({
-  experimental: {
-    session: true
-  },
     vite: {
         plugins: [tailwindcss()],
       },
