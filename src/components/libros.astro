@@ -41,7 +41,7 @@ const books = await Promise.all(
       <div class="flex justify-between items-center w-full">
         
         <a href={book.downloadUrl}   class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#3aee7044]"> Ver</a>
-        <a href={`/api/descargar?key=${encodeURIComponent(book.name + '.pdf')}`} class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#3aee7044]">Descargar</a>
+        <a href={`/api/descargar?key=${encodeURIComponent(book.name + '.pdf')}`} class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#3aee7044]">Decargar</a>
         <p class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#86888625] cursor-default">{(book.size ? (book.size / 1024 / 1024).toFixed(2) : '0.00')} MB</p>
       </div>
     </li>
