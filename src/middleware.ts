@@ -1,7 +1,7 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/astro/server";
 
 const isPublicRoute = createRouteMatcher([
-  "/", "/sign-in(.*)", "/sign-up(.*)", "/sign-up/verify-email-address(.*)"
+  "/", "/sign-in(.*)", "/sign-up(.*)", "/sign-up/verify-email-address(.*)", "/home(.*)", "/api/descargar(.*)"
 ]);
 
 export const onRequest = clerkMiddleware((auth, context) => {

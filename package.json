@@ -11,6 +11,8 @@
   "dependencies": {
     "@astrojs/node": "^9.2.1",
     "@astrojs/vercel": "^8.1.4",
+    "@aws-sdk/client-s3": "^3.802.0",
+    "@aws-sdk/s3-request-presigner": "^3.802.0",
     "@clerk/astro": "^2.6.12",
     "@clerk/localizations": "^3.14.3",
     "@clerk/themes": "^2.2.39",
