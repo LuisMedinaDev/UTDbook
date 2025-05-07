@@ -8,7 +8,7 @@ export async function GET({ request }) {
   }
 
   // Construir la URL para acceder al archivo PDF
-  const url = `https://utdbook.online/libros/${encodeURIComponent(key)}`;
+  const url = `https://pub-88adf693bfef4286a65b9b93b1b67114.r2.dev/libros/${encodeURIComponent(key)}`;
 
   try {
     // Descargar el archivo desde la URL generada

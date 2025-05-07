@@ -1,49 +1,35 @@
 ---
-import { listPDFs, getDownloadUrl, portadaExists } from '../pages/api/s3.js';
+import { obtenerArchivos } from "../lib/api";
 
-const bucketName = 'utdbook';
-const pdfObjects = await listPDFs(bucketName);
+const archivos = await obtenerArchivos();
 
-const books = await Promise.all(
-  pdfObjects.map(async (object) => {
-    const pdfKey = object.Key ?? '';
-    const name = pdfKey.split('/').pop()?.replace('.pdf', '') ?? '';
-    const downloadUrl = await getDownloadUrl(bucketName, pdfKey);
-
-    
-    // Portada esperada: portadas/{nombre}.jpg
-    const portadaKey = `portadas/${name}.jpg`;
-    const portadaExiste = await portadaExists(bucketName, portadaKey);
-    const imageUrl = portadaExiste
-      ? `https://utdbook.online/${portadaKey}`
-      : 'https://utdbook.online/portadas/default-cover.jpg';
-
-    return {
-      name,
-      size: object.Size,
-      downloadUrl,
-      imageUrl,
-    };
-  })
-);
-
-
-
+const data = JSON.stringify(archivos, null, 2);
  
+function formatoPeso(bytes) {
+  const kb = bytes / 1024;
+  const mb = kb / 1024;
+  return mb > 1 ? `${mb.toFixed(2)} MB` : `${kb.toFixed(2)} KB`;
+}
 ---
 
-<ul class="flex gap-5 flex-wrap w-full justify-center">
-  {books.map(book => (
-    <li class="flex flex-col justify-between items-center gap-3.5 w-full text-white max-w-[20rem] min-h-[20rem] font-bold bg-[#8d8d8d23] p-4 rounded-[.7rem]">
-         {/* <h3>{book.name}</h3> */}
-      <img src={book.imageUrl} alt={`Portada de ${book.name}`} class="w-full h-full rounded-[.7rem]" />
-      
-      <div class="flex justify-between items-center w-full">
-        
-        <a href={book.downloadUrl}   class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#3aee7044]"> Ver</a>
-        <a href={`/api/descargar?key=${encodeURIComponent(book.name + '.pdf')}`} class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#3aee7044]">Decargar</a>
-        <p class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#86888625] cursor-default">{(book.size ? (book.size / 1024 / 1024).toFixed(2) : '0.00')} MB</p>
-      </div>
-    </li>
-  ))}
-</ul>
+ <ul class="flex gap-5 flex-wrap w-full justify-center">
+  {archivos.map(({ nombre, size, urlpdf, urljpg }) => {
+
+
+    return (
+      <li class="flex flex-col justify-between items-center gap-3.5 w-full text-white max-w-[20rem] min-h-[20rem] font-bold bg-[#8d8d8d23] p-4 rounded-[.7rem]">
+    
+    
+          <img src={urljpg} alt="portada" class="w-full h-full rounded-[.7rem]"/>
+
+          <div class="flex justify-between items-center w-full">
+            <a href={urlpdf} target="_blank" rel="noopener noreferrer"  class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#3aee7044]">
+            ver
+            </a>
+            <p class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#86888625] cursor-default"> {formatoPeso(size)} </p>
+          </div>
+   
+      </li>
+    );
+  })}
+</ul> 
