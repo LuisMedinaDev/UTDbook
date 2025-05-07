@@ -26,6 +26,14 @@ function formatoPeso(bytes) {
             <a href={urlpdf} target="_blank" rel="noopener noreferrer"  class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#3aee7044]">
             ver
             </a>
+            <a 
+  href={`/api/descargar?key=${encodeURIComponent(nombre)}`} 
+ 
+  rel="noopener noreferrer" 
+  class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#3aee7044]"
+>
+  Descargar
+</a>
             <p class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#86888625] cursor-default"> {formatoPeso(size)} </p>
           </div>
    

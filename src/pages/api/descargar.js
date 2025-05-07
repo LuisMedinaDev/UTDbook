@@ -1,3 +1,6 @@
+
+
+
 export async function GET({ request }) {
   // Obtener el parámetro 'key' de la URL (el nombre del archivo)
   const { searchParams } = new URL(request.url);
@@ -8,7 +11,7 @@ export async function GET({ request }) {
   }
 
   // Construir la URL para acceder al archivo PDF
-  const url = `https://pub-88adf693bfef4286a65b9b93b1b67114.r2.dev/libros/${encodeURIComponent(key)}`;
+  const url = `https://r2-worker.luisdanielmedina15.workers.dev/${key}`;
 
   try {
     // Descargar el archivo desde la URL generada
