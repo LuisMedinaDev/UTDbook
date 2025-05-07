@@ -10,15 +10,45 @@ import { SignedIn, SignedOut} from "@clerk/astro/components";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title> UTD Book - Home</title>
 	</head>
-	<body class="bg-[#0c0c0e] overflow-hidden">
-		<SignedOut>
+	<body class="bg-[#080813] overflow-hidden bg-[url('/hero.svg')] bg-no-repeat bg-center bg-cover h-screen">
+		<main class="flex flex-col items-center justify-center w-[85%] m-auto gap-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+			<div class="text-white font-bold flex flex-col items-center justify-center gap-3 w-full text-center">
+				<img src="/headerlogo.png" alt="logo" class="h-25 md:h-18">
+				<h1 class="text-[2.4rem]">Welcome to UTD Book!</h1>
+				<p class="text-[1.2rem] font-[500]">
+					UTD Book es un proyecto universitario que busca crear una biblioteca digital para UTD Francisco Tamayo. 
+			</div>
+			
+			<SignedOut>
+					<a href="/sign-in" class="text-white hover:bg-[#ffffff17] border-1 border-[#9898983b] rounded-[.7rem] px-5 py-3  md:py-1.5 cursor-pointer bg-[#f3305a44]">Registrate</a>
+			</SignedOut>
+			<SignedIn>
+				<a href="/sign-in" class="text-white hover:bg-[#ffffff17] border-1 border-[#9898983b] rounded-[.7rem] px-5 py-3  md:py-1.5 cursor-pointer bg-[#3aee7044]"> Inicia sesión</a>
+			</SignedIn>
+		</main>
 		
-				<a href="/sign-in" class="text-white hover:bg-[#ffffff17] border-1 border-[#9898983b] rounded-[.7rem] px-5 py-3  md:py-1.5 cursor-pointer bg-[#f3305a44]">Registrate</a>
-		</SignedOut>
-		<SignedIn>
-			<a href="/sign-in" class="text-white hover:bg-[#ffffff17] border-1 border-[#9898983b] rounded-[.7rem] px-5 py-3  md:py-1.5 cursor-pointer bg-[#3aee7044]"> Inicia sesión</a>
-		</SignedIn>
 		
-		
+		<footer class="absolute bottom-0 w-full flex flex-col ustify-center items-center bg-[#0c0c0e] p-5 text-white text-center text-[1.2rem] font-semibold">
+			<p> Made with ❤️ by</p>
+	 <p >Luis Medina - Paulo Quiroz - Diego Reveron</p>
+		</footer>
 	</body>
 </html>
+
+<style>
+
+
+
+   @media (width >= 768px) {
+	   html {
+		   font-size: clamp(6px, 0.8vw, 15.6px);
+	   }
+   }
+
+   @media (width <= 767px) {
+	   html {
+		   font-size: clamp(6px, 3vw, 16px);
+
+	   }
+   }
+</style>
