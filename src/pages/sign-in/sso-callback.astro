@@ -3,8 +3,8 @@ import { SignIn } from "@clerk/astro/components";
 import Layout from '../../layouts/LayoutSign.astro';
 ---
 <Layout title="Inicia sesión">
-  <div class="flex flex-col items-center justify-center h-screen gap-3">
-    <h1 class="text-white font-semibold text-xl text-center ">Procesando registro...</h1>
+  <div class="flex flex-col items-center justify-center h-screen gap-3 text-white ">
+    <h1 class="font-semibold text-xl text-center ">Procesando registro...</h1>
     <p class="font-light text-[1rem]">Esto puede tardar hasta 20 segundos...</p>
   <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" signUpForceRedirectUrl="/home" />
   </div>
