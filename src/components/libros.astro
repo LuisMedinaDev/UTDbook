@@ -17,24 +17,24 @@ function formatoPeso(bytes) {
 
 
     return (
-      <li class="flex flex-col justify-between items-center gap-3.5 w-full text-white max-w-[20rem] min-h-[20rem] font-bold bg-[#8d8d8d23] p-4 rounded-[.7rem]">
+      <li class="flex flex-col justify-between items-center gap-3.5  text-white w-[20rem] font-bold bg-[#8d8d8d23] p-4 rounded-[.7rem] text-[1.3rem] md:text-[1rem]">
     
-    
-          <img src={urljpg} alt="portada" class="w-full h-full rounded-[.7rem]"/>
+    <a href={urlpdf} target="_blank" rel="noopener noreferrer"  class="rounded-[.6rem] bg-[#8d8d8d23]  w-full h-full p-2.5">
+      <img src={urljpg} alt="portada" class="object-cover w-full h-full rounded-[.7rem]"/>
+            </a>
+        
 
           <div class="flex justify-between items-center w-full">
-            <a href={urlpdf} target="_blank" rel="noopener noreferrer"  class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#3aee7044]">
-            ver
-            </a>
+           
             <a 
   href={`/api/descargar?key=${encodeURIComponent(nombre)}`} 
  
   rel="noopener noreferrer" 
-  class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#3aee7044]"
+  class="py-[0.30rem] px-2.5 rounded-[.6rem] bg-[#3aee7044]"
 >
   Descargar
 </a>
-            <p class="py-[0.18rem] px-2.5 rounded-[.6rem] bg-[#86888625] cursor-default"> {formatoPeso(size)} </p>
+            <p class="py-[0.30rem] px-2.5 rounded-[.6rem] bg-[#86888625] cursor-default"> {formatoPeso(size)} </p>
           </div>
    
       </li>
